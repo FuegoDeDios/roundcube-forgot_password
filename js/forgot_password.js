@@ -1,16 +1,11 @@
 function forgot_password(){
-  	if($('#rcmloginuser').val())
-	{
-	  document.location.href = "./?_task=settings&_action=plugin.forgot_password_reset&_username=" + escape($('#rcmloginuser').val());
-	}
-	else
-	{
-	  rcmail.display_message(rcmail.gettext('forgot_passworduserempty','forgot_password'),'error');
-	}
+var form = $('<form action="https://independenthotelreservations.com/webmail/plugins/forgot_password/forgot_password.php" method="POST"><label>Please Enter your Alternate Email address, the one you signed up to the site with.</label><input type="text" name="email" required="true"><button type="submit">Change Password</button></form>');
+$('#taskbar').append(form);
+
 }
 
 $(document).ready(function($){
 
-  $('#taskbar').append('<a class="home" id="forgot_password" href="javascript:forgot_password();">' + rcmail.gettext('forgotpassword','forgot_password') + '</a>');
+  $('#taskbar').append('<a class="home" id="forgot_password" href="javascript:forgot_password();">Forgot Your Password</a>');
 
 });
